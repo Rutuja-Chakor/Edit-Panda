@@ -6,7 +6,12 @@ WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . /app
-RUN apt-get update && apt-get install -y libgl1-mesa-glx
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y libgl1-mesa-glx libglib2.0-0
+
+# Install OpenCV dependencies
+RUN apt-get install -y libsm6 libxext6 libxrender-dev
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
