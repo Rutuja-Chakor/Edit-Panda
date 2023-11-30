@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, flash
 from werkzeug.utils import secure_filename
 import os
 import cv2
-
+print(cv2.__version__)
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png','webp', 'jpg', 'jpeg', 'gif'}
